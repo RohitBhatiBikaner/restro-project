@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RestroController;
+use App\Http\Controllers\RestaurantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,22 +15,27 @@ use App\Http\Controllers\RestroController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
-// Route::get('/', [RestroController::class, 'index']);
-route::resource('/',RestroController::class);
-// route::resource('/add',RestroController::class);
-Route::get('/list', [RestroController::class, 'list']);
-// Route::get('/add ','RestroController@add');
-Route::get('/add', 'App\Http\Controllers\RestroController@add');
-// Route::get('/list', 'App\Http\Controllers\RestroController@list');
-// Route::post('/add', 'App\Http\Controllers\RestroController@add');
+Route::get('/', function () {
+    return view('welcome');
+});
 
-// route::resource('/add',RestroController::class);
-    // Route::get('/add',[RestroController::class,'create']);
+Route::resource('/restaurant', RestaurantController::class);
+Route::get('/list',[RestaurantController::class,'list']);
 
-// route::get('/','RestroController@add');
-// route::get('/','RestroController@list');
-// route::get('/','RestroController@index');
-// route::view('/add','add');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

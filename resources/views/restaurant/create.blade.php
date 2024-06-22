@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 
- {{-- <div class="container">   
+ {{-- <div class="container">
      <h1 class="text-center">Add New Restaurent</h1>
     <form action="" method="post">
         <div class="form-group">
@@ -20,8 +20,8 @@
     {{-- </div> --}}
     <div class="container borderd" style="box-shadow: 1px 2px 10px">
         <h1 class="text-center">Add New Restaurent</h1>
-    
-        <form method="post" action="/add/">
+
+        <form method="post" action="/restaurant/">
             @csrf
             <div class="mb-3">
                 <h4><label for="name" style="color: #960dad"> Name:</label></h4>
@@ -48,4 +48,4 @@
         </form>
     </div>
 
-@endsection 
+@endsection

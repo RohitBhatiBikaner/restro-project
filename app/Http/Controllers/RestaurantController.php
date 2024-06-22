@@ -15,6 +15,8 @@ class RestaurantController extends Controller
     public function index()
     {
         //
+        return view('restaurant.home');
+
     }
 
     /**
@@ -25,6 +27,8 @@ class RestaurantController extends Controller
     public function create()
     {
         //
+        return view("restaurant.create");
+
     }
 
     /**
@@ -36,6 +40,16 @@ class RestaurantController extends Controller
     public function store(Request $request)
     {
         //
+
+               $info=[
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'address'=>$request->address,
+        ];
+
+    Restaurant::create($info);
+   return redirect('/list');
+
     }
 
     /**
@@ -82,4 +96,23 @@ class RestaurantController extends Controller
     {
         //
     }
+
+     /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function list()
+    {
+        //
+        $data= restaurant::all();
+        return view('restaurant.list',compact('data'));
+    }
+
+
+
+
+
+
+
 }

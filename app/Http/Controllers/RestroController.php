@@ -30,10 +30,17 @@ class RestroController extends Controller
         $data= restaurant::all();    
         return view('list',["data"=>$data]);
     }
-    public function add()
+    public function add(Request $request)
     {
         //
+        // return $req->input();
+        $restro = new restaurant;
+        $restro->name=$request->input('name');
+        $restro->email=$request->input('email');;
+        $restro->address=$request->input('address');;
+        // $restro->save();
         return view('add');
+        
     }
 
 

@@ -19,11 +19,17 @@ use App\Http\Controllers\RestroController;
 // });
 // Route::get('/', [RestroController::class, 'index']);
 route::resource('/',RestroController::class);
-// // route::resource('/list',RestroController::class);
-// Route::get('/list', [RestroController::class, 'list']);
-// Route::get('/add','RestroController@add');
 // route::resource('/add',RestroController::class);
-    Route::get('/list',[RestroController::class,'list']);
-    Route::get('/add',[RestroController::class,'add']);
-    Route::get('/list',[RestroController::class,'list']);
+Route::get('/list', [RestroController::class, 'list']);
+// Route::get('/add ','RestroController@add');
+Route::get('/add', 'App\Http\Controllers\RestroController@add');
+// Route::get('/list', 'App\Http\Controllers\RestroController@list');
+// Route::post('/add', 'App\Http\Controllers\RestroController@add');
 
+// route::resource('/add',RestroController::class);
+    // Route::get('/add',[RestroController::class,'create']);
+
+// route::get('/','RestroController@add');
+// route::get('/','RestroController@list');
+// route::get('/','RestroController@index');
+// route::view('/add','add');

@@ -47,8 +47,9 @@ class RestaurantController extends Controller
             'address'=>$request->address,
         ];
 
+
     Restaurant::create($info);
-   return redirect('/list');
+   return redirect('/list')->with('status','Restaurent Submited Successfully');
 
     }
 
@@ -69,9 +70,14 @@ class RestaurantController extends Controller
      * @param  \App\Models\restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function edit(restaurant $restaurant)
+    public function edit(restaurant $restaurant,$id)
     {
         //
+        $data= restaurant::find($id);
+        return view('restaurant.edit',['data'=>$data]);
+        // return view('edit',['data'=>$data]);
+        // return restaurant::find($id); 
+
     }
 
     /**
@@ -92,9 +98,13 @@ class RestaurantController extends Controller
      * @param  \App\Models\restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function destroy(restaurant $restaurant)
+    public function destroy(restaurant $restaurant,$id )
     {
         //
+        return Restaurant::find($id)->delete();
+        // return $id;
+        // $restaurant->delete();
+        // return redirect('/list')->with('status','Data Deleted Successfully');
     }
 
      /**

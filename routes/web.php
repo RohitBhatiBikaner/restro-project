@@ -20,7 +20,9 @@ Route::get('/', function () {
 });
 
 Route::resource('/restaurant', RestaurantController::class);
-Route::get('/list',[RestaurantController::class,'list']);
+Route::get('list',[RestaurantController::class,'list']);
+Route::get('/edit{id}', [RestaurantController::class, 'edit'])->name('edit');
+// Route::get('/list{id}/delete', [RestaurantController::class, 'destroy'])->name('delete');
 
 
 

@@ -15,13 +15,17 @@ use App\Http\Controllers\RestaurantController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/register', function () {
+    return view('restaurant.register');
 });
 
 Route::resource('/restaurant', RestaurantController::class);
 Route::get('list',[RestaurantController::class,'list']);
 Route::get('/edit{id}', [RestaurantController::class, 'edit'])->name('edit');
+
+Route::put('edit', [RestaurantController::class, 'update'])->name('update');
+// Route::view('restaurant.register', 'register');
+Route::post('register', [RestaurantController::class, 'register'])->name('register');
 // Route::get('/list{id}/delete', [RestaurantController::class, 'destroy'])->name('delete');
 
 

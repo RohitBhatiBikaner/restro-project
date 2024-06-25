@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\restaurant;
 use Illuminate\Http\Request;
+use Crypt;
+use App\Models\User;
+use Session;
 
 class RestaurantController extends Controller
 {
@@ -89,7 +92,19 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, restaurant $restaurant)
     {
+        // $validatedData = $request->validate([
+        //     'name' => 'required|string|max:255',
+        //     'address' => 'required|string|max:255',
+        //     // Add other validation rules as necessary
+        // ]);
         //
+        // $restaurant->restaurant::find($request->id);
+        $restaurant->name=$request->name;
+        $restaurant->email=$request->email;
+        $$restaurant->address=$request->address;
+        $$restaurant->save();
+        return redirect('/list')->with('status','Data Updated Successfully');
+        
     }
 
     /**
@@ -119,7 +134,19 @@ class RestaurantController extends Controller
         return view('restaurant.list',compact('data'));
     }
 
-
+function register(Request $request)
+{
+    // echo Crypt::encrypt('123@abc');
+    // return $request->input();
+    $user= new user;
+    $user->name=$request->input('name');
+    $user->email=$request->input('email');
+    $user->password=Crypt::encrypt($request->input('password'));
+    $user->contact=$request->input('contact');
+    $user->save();
+    $request->session()->put('user',$request->input('name'));
+    return redirect('/restaurant');
+}
 
 
 

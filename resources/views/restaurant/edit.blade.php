@@ -3,10 +3,13 @@
 <div class="container borderd" style="box-shadow: 1px 2px 10px">
     <h1 class="text-center">Edit Restaurent</h1>
 
-    <form method="post" action="add">
+    <form method="post" action="/restaurant/{{$data['id']}}">
+    {{-- <form method="post" action="/list/{{$data['id']}}"enctype="multipart/form-data"> --}}
         @csrf
+        @method('put');
         <div class="mb-3">
             <h4><label for="name" style="color: #960dad"> Name:</label></h4>
+            <input type="hidden" name="id" value="{{$data->id}}" >
             <input type="text" class="form-control"name="name" value="{{$data->name}}" placeholder="Enter Name"
                 required>
         </div>
@@ -18,7 +21,7 @@
 
         <div class="mb-3">
             <h4><label for="address" style="color: #960dad">Address</label></h4>
-            <input type="text" class="form-control"name="address"value="{{$data->address}}" id="discount" placeholder="Enter Address">
+            <input type="address" class="form-control"name="address"value="{{$data->address}}" id="discount" placeholder="Enter Address" nullable>
         </div>
 
         </h4>

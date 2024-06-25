@@ -26,12 +26,24 @@
                       <a class="nav-link" href="/restaurant/create">Add</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="login">Login</a>
+                      <a class="nav-link" href="#">Search</a>
+                    </li>
+                    {{-- <li class="nav-item">
+                      <a class="nav-link" href="/login">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="register">Register</a>
-                      </li>
-
+                        <a class="nav-link" href="/register">Register</a>
+                      </li> --}}
+                      @if (Session::get('user'))
+                      <a class="nav-item nav-link" href="#">Welcome {{Session::get('user')}}</a>
+                          @else 
+                          <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="/register">Register</a>
+                            </li>
+                      @endif
                   </ul>
                 </div>
               </nav>

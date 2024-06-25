@@ -31,7 +31,7 @@
 
             <div class="mb-3">
                 <h4><label for="email" style="color: #960dad">Email</label></h4>
-                <input type="text" class="form-control"name="email" id="fees" placeholder="Enter Fees" required>
+                <input type="text" class="form-control"name="email" id="email" placeholder="Enter Email" required>
             </div>
 
             <div class="mb-3">

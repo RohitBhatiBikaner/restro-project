@@ -4,7 +4,6 @@
     <h1 class="text-center">Edit Restaurent</h1>
 
     <form method="post" action="/restaurant/{{$data['id']}}">
-    {{-- <form method="post" action="/list/{{$data['id']}}"enctype="multipart/form-data"> --}}
         @csrf
         @method('put');
         <div class="mb-3">

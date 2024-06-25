@@ -30,8 +30,8 @@
             <td>{{$item->email}}</td>
             <td>{{$item->address}}</td>
             <td><a href="/list{{$item->id}}/delete"  class="fa fa-trash">  </a>
-              <a href="/edit{{$item->id}}"  class="fa fa-edit">  </a>
-            </td>
+              <a href="/restaurant{{$item->id}}"  class="fa fa-edit">  </a>
+          </td>
             {{-- <td><form method="post" action="/list/{{$item['id']}}">
               @csrf
           @method('delete')

@@ -19,13 +19,19 @@ Route::get('/register', function () {
     return view('restaurant.register');
 });
 
+Route::get('/login', function () {
+    return view('restaurant.login');
+});
+
 Route::resource('/restaurant', RestaurantController::class);
 Route::get('list',[RestaurantController::class,'list']);
-Route::get('/edit{id}', [RestaurantController::class, 'edit'])->name('edit');
+Route::get('/restaurant{id}', [RestaurantController::class, 'edit'])->name('edit');
 
-Route::put('edit', [RestaurantController::class, 'update'])->name('update');
+// Route::put('/restaurant/edit', [RestaurantController::class, 'update'])->name('update');
 // Route::view('restaurant.register', 'register');
 Route::post('register', [RestaurantController::class, 'register'])->name('register');
+Route::post('login', [RestaurantController::class, 'login'])->name('login');
+
 // Route::get('/list{id}/delete', [RestaurantController::class, 'destroy'])->name('delete');
 
 
